@@ -1,0 +1,30 @@
+{
+  "name": "Zenn Writing",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/atsushi11o7/devcontainer-features/base-utils:2": {
+      "locale": "C.UTF-8",
+      "timezone": "Asia/Tokyo"
+    }
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "containerEnv": {
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8"
+  },
+  "postCreateCommand": "test -f package.json && npm install || true",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.markdownlint"
+      ]
+    }
+  },
+  "remoteUser": "node",
+  "forwardPorts": [8000]
+}
